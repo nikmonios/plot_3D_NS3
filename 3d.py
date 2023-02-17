@@ -1,7 +1,11 @@
 import plotly.graph_objs as go
 
+Xmax = 20
+Ymax = 10
+Zmax = 6
+
 # Define cube vertices
-vertices = [[0, 0, 0], [0, 10, 0], [20, 10, 0], [20, 0, 0], [0, 0, 6], [0, 10, 6], [20, 10, 6], [20, 0, 6]]
+vertices = [[0, 0, 0], [0, Ymax, 0], [Xmax, Ymax, 0], [Xmax, 0, 0], [0, 0, Zmax], [0, Ymax, Zmax], [Xmax, Ymax, Zmax], [Xmax, 0, Zmax]]
 
 # Define edges that connect vertices
 edges = [(0, 1), (1, 2), (2, 3), (3, 0), (4, 5), (5, 6), (6, 7), (7, 4), (0, 4), (1, 5), (2, 6), (3, 7)]
