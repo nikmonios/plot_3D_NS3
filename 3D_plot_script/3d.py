@@ -5,11 +5,11 @@ import os
 os.chdir('../NS3_simulation/')
 
 with open('Buildings.txt') as f:
-    for line in f:
-        tok = line.split(",")
-        Xmin = (float(tok[0]))
-        Ymin = (float(tok[1]))
-        Xman = (float(tok[2]))
+	for line in f:
+		tok = line.split(",")
+		Xmin = (float(tok[0]))
+		Ymin = (float(tok[1]))
+		Xmax = (float(tok[2]))
 		Ymax = (float(tok[3]))
 		Zmax = (float(tok[4]))
 
