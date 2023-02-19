@@ -1,8 +1,18 @@
 import plotly.graph_objs as go
+import os
 
-Xmax = 20
-Ymax = 10
-Zmax = 6
+
+os.chdir('../NS3_simulation/')
+
+with open('Buildings.txt') as f:
+    for line in f:
+        tok = line.split(",")
+        Xmin = (float(tok[0]))
+        Ymin = (float(tok[1]))
+        Xman = (float(tok[2]))
+		Ymax = (float(tok[3]))
+		Zmax = (float(tok[4]))
+
 
 # Define cube vertices
 vertices = [[0, 0, 0], [0, Ymax, 0], [Xmax, Ymax, 0], [Xmax, 0, 0], [0, 0, Zmax], [0, Ymax, Zmax], [Xmax, Ymax, Zmax], [Xmax, 0, Zmax]]
@@ -14,7 +24,7 @@ X = []
 Y = []
 Z = []
 
-with open('nodes_coords_simple.txt') as f:
+with open('nodes_coords.txt') as f:
     for line in f:
         tok = line.split(",")
         X.append(float(tok[0]))
@@ -57,11 +67,22 @@ edge_trace = go.Scatter3d(
     )
 )
 
-gw_point = [[10,5,5]]
+
+G_X = []
+G_Y = []
+G_Z = []
+
+with open('gateways_coords.txt') as f:
+    for line in f:
+        tok = line.split(",")
+        G_X.append(float(tok[0]))
+        G_Y.append(float(tok[1]))
+        G_Z.append(float(tok[2]))
+		
 gw_point_trace = go.Scatter3d(
-    x = [p[0] for p in gw_point],
-    y = [p[1] for p in gw_point],
-    z = [p[2] for p in gw_point],
+    x = G_X,
+    y = G_Y,
+    z = G_Z,
     mode='markers',
     marker=dict(
         size=10,
