@@ -153,8 +153,8 @@ int main (int argc, char *argv[])
 
   // Create the lora channel object
   Ptr<LogDistancePropagationLossModel> loss = CreateObject<LogDistancePropagationLossModel> ();
-  loss->SetPathLossExponent (2.3); // was 3.76
-  loss->SetReference (1, 42); // was 1, 7.7
+  loss->SetPathLossExponent (1.7); // was 3.76
+  loss->SetReference (1, 10); // was 1, 7.7
 
   if (realisticChannelModel)
     {
